@@ -33,6 +33,7 @@ const signup = async (req, res) => {
       password,
       status: "inactive",
       categoryId,
+      otp: null,
     });
 
     res.status(200).json({

@@ -6,7 +6,7 @@ const userSchema = mongoose.Schema({
   number: { type: Number, unique: true, required: true },
   password: { type: String, required: true },
   posts: [{ type: mongoose.Schema.Types.ObjectId, ref: "Post" }],
-  otp: String,
+  otp: { type: String },
   categoryId: { type: mongoose.Schema.Types.ObjectId, ref: "Category" },
   status: { type: String, enum: ["active", "inactive"], required: true },
 });
