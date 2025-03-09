@@ -51,13 +51,29 @@ const signup = async (req, res) => {
 const signin = async (req, res) => {
   try {
     const { email, password } = req.body;
+    const userData = await User.findOne({
+      email,
+    });
+
+    if (!userData) {
+      res.status(203).json({
+        message: "Email is not fond please signup whith this email",
+      });
+      return;
+    }
+
     const isValid = await User.findOne({
       email,
       password,
       status: "active",
     });
+
     if (isValid) {
-      const token = jwt.sign(email, process.env.JWT_SECRET);
+      const token = jwt.sign(
+        { email, _id: userData._id },
+        process.env.JWT_SECRET
+      );
+
       res.status(200).json({
         message: "Logined Successfully..",
         token,
