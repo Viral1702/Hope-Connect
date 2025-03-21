@@ -1,8 +1,18 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HomeOutlet from "./Outletes/HomeOutlet";
+import HomePage from "./Pages/HomePage";
+import AboutPage from "./Pages/AboutPage";
+
 function App() {
   return (
-    <>
-      <h1 class="text-3xl font-bold underline">Hello world!</h1>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomeOutlet />}>
+          <Route index element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
