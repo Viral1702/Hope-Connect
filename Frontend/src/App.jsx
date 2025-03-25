@@ -2,6 +2,8 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Homepage from "./Pages/Landing/Homepage";
 import LandingOutlet from "./Outlets/LandingOutlet";
+import UserOutlet from "./Outlets/UserOutlet";
+import OrganizationOutlet from "./Outlets/OrganizationOutlet";
 import Loginpage from "./Pages/Auth/Loginpage";
 
 const App = () => {
@@ -12,12 +14,16 @@ const App = () => {
         <Route path="/" element={<LandingOutlet />}>
           <Route path="/" element={<Homepage />} />
         </Route>
-        // Auth Routes
-        <Route path="/auth">
+        // User Routes // Auth Routes
+        <Route path="/user" element={<UserOutlet />}>
           <Route path="login" element={<Loginpage />} />
         </Route>
         // Organization Routes
-        <Route path="/organization">
+        <Route path="/organization" element={<OrganizationOutlet />}>
+          <Route path="login" element={<Loginpage />} />
+        </Route>
+        // Auth Routes
+        <Route path="/auth">
           <Route path="login" element={<Loginpage />} />
         </Route>
       </Routes>
