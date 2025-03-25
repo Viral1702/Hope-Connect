@@ -5,6 +5,7 @@ import AboutPage from "./Pages/AboutPage";
 
 function App() {
   return (
+<<<<<<< HEAD:Frontend/src/App.jsx
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomeOutlet />}>
@@ -13,6 +14,12 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
+=======
+    <>
+      <h1 class="text-3xl font-bold underline">Hello world!</h1>
+      <h1>Madhvi</h1>
+    </>
+>>>>>>> 21ee2c7c96d119e56f72e55298b21af23fc19857:Frontend/src/pages/guest/App.jsx
   );
 }
 
