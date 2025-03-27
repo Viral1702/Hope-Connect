@@ -5,7 +5,7 @@ export default function Landingheader() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="bg-[#F5C28E] shadow-md border-b w-full fixed top-0 left-0 z-50">
+    <div className="bg-[#F5C28E] shadow-md border-b w-full sticky top-0 left-0 z-50">
       <nav className="container mx-auto flex items-center justify-between p-4">
         {/* Logo */}
         <Link to="/">
@@ -49,6 +49,6 @@ export default function Landingheader() {
           </Link>
         </div>
       </nav>
-    </header>
+    </div>
   );
 }

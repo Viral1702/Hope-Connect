@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const Homepage = () => {
   return (
-    <div>
+    <div className="h-48">
       Home page <NavLink to="/auth/login">Login</NavLink>
     </div>
   );
