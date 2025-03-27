@@ -1,13 +1,11 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import LoginForm from "../../components/user/login/LoginForm";
+import UserHeader from "../../components/Landing/UserHeader";
 
 const Loginpage = () => {
   return (
     <div>
-      Login <NavLink to="/">Home</NavLink>
-      <UserHeader/>
-      <LoginForm/>
+      <LoginForm />
     </div>
   );
 };
