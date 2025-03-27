@@ -6,6 +6,7 @@ import UserOutlet from "./Outlets/UserOutlet";
 import OrganizationOutlet from "./Outlets/OrganizationOutlet";
 import Loginpage from "./Pages/Auth/Loginpage";
 import AboutUs from "./Pages/Landing/AboutUs";
+import LoginOutlet from "./Outlets/LoginOutlet";
 
 const App = () => {
   return (
@@ -17,8 +18,13 @@ const App = () => {
           <Route path="/aboutus" element={<AboutUs/>}/>
         </Route>
         // User Routes // Auth Routes
+        <Route path="/login" element={<LoginOutlet />}>
+          <Route index element={<Loginpage />} /> {/* Default page inside /login */}
+        </Route>
+        
         <Route path="/user" element={<UserOutlet />}>
-          <Route path="login" element={<Loginpage />} />
+          
+          
         </Route>
         // Organization Routes
         <Route path="/organization" element={<OrganizationOutlet />}>
