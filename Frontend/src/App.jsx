@@ -11,6 +11,7 @@ import OrganizationOutlet from "./Outlets/OrganizationOutlet";
 import Homepage from "./Pages/Landing/Homepage";
 import Loginpage from "./Pages/Auth/Loginpage";
 import AboutUs from "./Pages/Landing/AboutUs";
+import LoginOutlet from "./Outlets/LoginOutlet";
 import OrgHomepage from "./Pages/Organization/OrgHomepage";
 
 const App = () => {
@@ -26,6 +27,7 @@ const App = () => {
         <Route path="/user" element={<UserOutlet />}>
           <Route path="login" element={<Loginpage />} />
         </Route>
+        <Route path="/user" element={<UserOutlet />}></Route>
         // Organization Routes
         <Route path="/organization" element={<OrganizationOutlet />}>
           <Route path="" element={<OrgHomepage />} />
