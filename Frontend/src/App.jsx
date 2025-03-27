@@ -17,7 +17,7 @@ const App = () => {
           <Route path="/aboutus" element={<AboutUs/>}/>
         </Route>
         // User Routes // Auth Routes
-        <Route path="/user" element={<UserOutlet />}>
+          <Route path="/user" element={<UserOutlet />}>
           <Route path="login" element={<Loginpage />} />
         </Route>
         // Organization Routes

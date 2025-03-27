@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Details from "../../components/guest/aboutus/Details";
+import Details from "../../Components/guest/aboutus/Details";
 
 const AboutUs = () => {
     return(
