@@ -1,7 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
+  const navigate = useNavigate(); // Hook to navigate
+
+  const handleLogin = (e) => {
+    e.preventDefault(); // Prevents default form submission
+
+  // verifying user credentials
+
+    // Redirect to "/user" after successful login
+    navigate("/user");
+  };
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-orange-100">
       {/* Authentication Container */}
@@ -9,7 +20,7 @@ const LoginPage = () => {
         <h2 className="text-2xl font-semibold mb-6">Login Form</h2>
 
         {/* Login Form */}
-        <form className="space-y-5">
+        <form onSubmit={handleLogin} className="space-y-5">
           <div className="flex items-center bg-white p-2 rounded-md shadow">
             <img
               src="https://img.icons8.com/ios-filled/50/000000/user.png"
@@ -48,7 +59,7 @@ const LoginPage = () => {
 
         <p className="mt-4 text-sm">
           Not a member?{" "}
-          <Link to="/register" className="text-orange-600 font-bold">
+          <Link to="/auth/register" className="text-orange-600 font-bold">
             Signup Now
           </Link>
         </p>
