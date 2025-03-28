@@ -74,7 +74,7 @@ const RegisterPage = () => {
           {/* Register Button */}
           <button
             type="submit"
-            className="w-full bg-orange-500 text-white py-2 rounded-md hover:bg-blue-600 transition"
+            className="w-full bg-orange-500 text-white py-2 rounded-md hover:bg-orange-600 transition"
           >
             Register
           </button>

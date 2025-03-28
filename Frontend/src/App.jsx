@@ -33,6 +33,7 @@ const App = () => {
         
         <Route path="/user" element={<UserOutlet />}>
         
+        
         </Route>
 
         <Route path="/organization" element={<OrganizationOutlet />}>
