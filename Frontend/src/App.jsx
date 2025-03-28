@@ -13,6 +13,7 @@ import Loginpage from "./Pages/Auth/Loginpage";
 import AboutUs from "./Pages/Landing/AboutUs";
 import LoginOutlet from "./Outlets/LoginOutlet";
 import OrgHomepage from "./Pages/Organization/OrgHomepage";
+import ContactUs from "./Pages/Landing/ContactUs";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/" element={<LandingOutlet />}>
           <Route path="/" element={<Homepage />} />
           <Route path="/aboutus" element={<AboutUs />} />
+          <Route path="/contactus" element={<ContactUs />} />
         </Route>
         // User Routes // Auth Routes
 
