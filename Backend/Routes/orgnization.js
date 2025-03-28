@@ -13,7 +13,7 @@ OrganizationRouts.get("/", async (req, res) => {
       res.status(200).json({ message: "Organization not found" });
       return;
     }
-    const { categoryId } = await User.findById(_id);
+    const { categoryId } = await User.findById(_id).populet("userId");
     const data = await Post.find({ categoryId });
     res.send(data);
   } catch (error) {
