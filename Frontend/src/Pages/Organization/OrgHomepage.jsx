@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import HeroCard from "../../Components/Organization/HeroCard";
-import axios from "axios";
+// import axios from "axios";
 
 const getData = async () => {
   const user = localStorage.getItem("users");
