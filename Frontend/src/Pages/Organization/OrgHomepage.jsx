@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import HeroCard from "../../Components/Organization/HeroCard";
-// import axios from "axios";
+import axios from "axios";
+import { useOrgContext } from "../../Context/OrganizationContext";
 
 const getData = async () => {
   const user = localStorage.getItem("users");
@@ -10,7 +11,7 @@ const getData = async () => {
   try {
     const { data } = await axios.get("http://localhost:3000/api/organization", {
       headers: {
-        authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFAZ21haWwuY29tIiwiX2lkIjoiNjdjZDkxZjU1MWJkMDdiZWQyY2VjMWM2IiwiaWF0IjoxNzQxNTI4MDg2fQ.UoN40QFvJU2iOB1zdirIyO5JTNDf7C-AP3m_3Wou2xg`,
+        Authorization: token,
       },
     });
     return data;
@@ -21,12 +22,11 @@ const getData = async () => {
 };
 
 const OrgHomepage = () => {
-  const [post, setPost] = useState([]);
+  const { post, setPost } = useOrgContext();
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await getData();
-      console.log("Data Is", data);
       setPost(data);
     };
     fetchData();
@@ -35,7 +35,12 @@ const OrgHomepage = () => {
   return (
     <div className="flex flex-col justify-center items-center bg-[#FFE7C7]">
       {post.map((p) => (
-        <HeroCard description={p.message} src={p.image} name="TEST" />
+        <HeroCard
+          description={p.message}
+          src={p.image}
+          name={p.userId.name}
+          key={p._id}
+        />
       ))}
     </div>
   );
