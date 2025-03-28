@@ -20,11 +20,13 @@ const addPost = async (req, res) => {
   try {
     // get Data
     const { _id, message, image, location, category } = req.body;
-
     // get Category
     const categoryData = await Category.findOne({ name: category });
+    if (!categoryData) {
+      res.status(404).json({ message: "Category is invalid" });
+      return;
+    }
     const categoryId = categoryData._id;
-
     // Create new Post
     const newPost = await Post.create({
       userId: _id,

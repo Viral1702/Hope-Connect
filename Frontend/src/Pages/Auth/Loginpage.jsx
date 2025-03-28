@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 const LoginPage = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-orange-100">
-     
-
       {/* Authentication Container */}
       <div className="bg-orange-200 p-8 rounded-lg shadow-md w-96 text-center">
         <h2 className="text-2xl font-semibold mb-6">Login Form</h2>
