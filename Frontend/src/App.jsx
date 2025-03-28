@@ -18,19 +18,13 @@ const App = () => {
           <Route path="/aboutus" element={<AboutUs/>}/>
         </Route>
         // User Routes // Auth Routes
-<<<<<<< HEAD
-          <Route path="/user" element={<UserOutlet />}>
-          <Route path="login" element={<Loginpage />} />
-=======
+
         <Route path="/login" element={<LoginOutlet />}>
           <Route index element={<Loginpage />} /> {/* Default page inside /login */}
         </Route>
         
-        <Route path="/user" element={<UserOutlet />}>
-          
-          
->>>>>>> 7232a20def72da5bc129560314ff54ca18475bb3
-        </Route>
+        <Route path="/user" element={<UserOutlet />} />
+        
         // Organization Routes
         <Route path="/organization" element={<OrganizationOutlet />}>
           <Route path="login" element={<Loginpage />} />
