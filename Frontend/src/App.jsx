@@ -16,6 +16,7 @@ import LoginOutlet from "./Outlets/LoginOutlet";
 import OrgHomepage from "./Pages/Organization/OrgHomepage";
 import ContactUs from "./Pages/Landing/ContactUs";
 import { OrgProvider } from "./Context/OrganizationContext";
+import OrgSinglePostPage from "./Pages/Organization/OrgSinglePostPage";
 
 const App = () => {
   return (
@@ -37,6 +38,7 @@ const App = () => {
 
           <Route path="/organization" element={<OrganizationOutlet />}>
             <Route path="" element={<OrgHomepage />} />
+            <Route path=":id" element={<OrgSinglePostPage />} />
           </Route>
 
           {/* Auth Routes */}

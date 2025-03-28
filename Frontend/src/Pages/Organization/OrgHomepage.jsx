@@ -40,6 +40,7 @@ const OrgHomepage = () => {
           src={p.image}
           name={p.userId.name}
           key={p._id}
+          id={p._id}
         />
       ))}
     </div>
