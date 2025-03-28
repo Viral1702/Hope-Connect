@@ -48,9 +48,9 @@ const LoginPage = () => {
 
         <p className="mt-4 text-sm">
           Not a member?{" "}
-          <Link to="/register" className="text-orange-600 font-bold">
-            Signup Now
-          </Link>
+          <Link to="/auth/register" className="text-orange-600 font-bold">
+  Signup Now
+</Link>
         </p>
       </div>
     </div>

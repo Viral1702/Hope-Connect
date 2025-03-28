@@ -44,7 +44,7 @@ export default function Landingheader() {
           <Link to="/contactus" className="block px-4 py-2 text-black font-semibold hover:text-[#ff6a00]">
             Contact Us
           </Link>
-          <Link to="/login" className="block lg:ml-4 px-4 py-2 mt-2 lg:mt-0 bg-[#E38B29] text-black font-semibold text-center rounded-lg hover:bg-[#d47a22]">
+          <Link to="/auth/login" className="block lg:ml-4 px-4 py-2 mt-2 lg:mt-0 bg-[#E38B29] text-black font-semibold text-center rounded-lg hover:bg-[#d47a22]">
             Login
           </Link>
         </div>
