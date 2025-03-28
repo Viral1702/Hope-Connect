@@ -24,11 +24,17 @@ const App = () => {
           <Route path="/" element={<Homepage />} />
           <Route path="/aboutus" element={<AboutUs />} />
         </Route>
-     
+
         
-     
-        <Route path="/user" element={<UserOutlet />}></Route>
-       
+
+        <Route path="/login" element={<LoginOutlet />}>
+          <Route index element={<Loginpage />} /> {/* Default page inside /login */}
+        </Route>
+        
+        <Route path="/user" element={<UserOutlet />}>
+        
+        </Route>
+
         <Route path="/organization" element={<OrganizationOutlet />}>
           <Route path="" element={<OrgHomepage />} />
         </Route>
