@@ -13,19 +13,19 @@ import Loginpage from "./Pages/Auth/Loginpage";
 import AboutUs from "./Pages/Landing/AboutUs";
 import LoginOutlet from "./Outlets/LoginOutlet";
 import OrgHomepage from "./Pages/Organization/OrgHomepage";
-import ContactUs from "./Pages/Landing/ContactUs";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        // User Routes
+      
         <Route path="/" element={<LandingOutlet />}>
           <Route path="/" element={<Homepage />} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/contactus" element={<ContactUs />} />
         </Route>
-        // User Routes // Auth Routes
+
+        
 
         <Route path="/login" element={<LoginOutlet />}>
           <Route index element={<Loginpage />} /> {/* Default page inside /login */}
@@ -34,14 +34,16 @@ const App = () => {
         <Route path="/user" element={<UserOutlet />}>
         
         </Route>
-        // Organization Routes
+
         <Route path="/organization" element={<OrganizationOutlet />}>
           <Route path="" element={<OrgHomepage />} />
         </Route>
-        // Auth Routes
-        <Route path="/auth">
-          <Route path="login" element={<Loginpage />} />
-        </Route>
+      
+        {/* Auth Routes */}
+<Route path="/auth" element={<LoginOutlet />}>
+  <Route path="login" element={<Loginpage />} />
+  <Route path="register" element={<RegisterPage/>} />
+</Route>
       </Routes>
     </BrowserRouter>
   );
