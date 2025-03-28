@@ -26,7 +26,6 @@ const OrgHomepage = () => {
   useEffect(() => {
     const fetchData = async () => {
       const data = await getData();
-      console.log("Data Is", data);
       setPost(data);
     };
     fetchData();
@@ -35,7 +34,12 @@ const OrgHomepage = () => {
   return (
     <div className="flex flex-col justify-center items-center bg-[#FFE7C7]">
       {post.map((p) => (
-        <HeroCard description={p.message} src={p.image} name="TEST" />
+        <HeroCard
+          description={p.message}
+          src={p.image}
+          name={p.userId.name}
+          key={p._id}
+        />
       ))}
     </div>
   );
