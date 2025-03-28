@@ -7,7 +7,7 @@ const UserHeader = () => {
       <nav className="container mx-auto flex justify-center">
         <Link to="/">
           <img
-            src="/images/guest/logo-removebg-preview.png"
+            src="../../../public/guest/Navlogo.png"
             alt="Logo"
             className="w-40"
           />
