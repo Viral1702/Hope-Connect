@@ -20,6 +20,9 @@ const App = () => {
      
         <Route path="/login" element={<LoginOutlet />}>
           <Route index element={<Loginpage />} /> {/* Default page inside /login */}
+         
+         
+
         </Route>
         
         <Route path="/user" element={<UserOutlet />}>
