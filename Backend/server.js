@@ -22,7 +22,7 @@ app.use("/api/category", CategoryRouter);
 // ===>> User Routes
 app.use("/api", UserRouter);
 
-// ===>> User Routes
+// ===>> Organization Routes
 app.use("/api/organization", OrganizationRouts);
 
 app.listen(process.env.PORT, () => {

@@ -13,13 +13,25 @@ OrganizationRouts.get("/", async (req, res) => {
       res.status(200).json({ message: "Organization not found" });
       return;
     }
-    const { categoryId } = await User.findById(_id).populet("userId");
-    const data = await Post.find({ categoryId });
+    const { categoryId } = await User.findById(_id);
+    const data = await Post.find({ categoryId }).populate("userId");
     res.send(data);
   } catch (error) {
     console.log("getCategoryData Error: ", error);
     resizeBy.status(500).json({ message: "Internal server Error" });
   }
+});
+
+OrganizationRouts.get("/:id", async (req, res) => {
+  const { id } = req.params;
+  if (!id) {
+    res.status(404).json({ message: "Id not found" });
+  }
+  const data = await Post.find({ _id: id }).populate("userId");
+  if (!data) {
+    res.status(403).json({ message: "Invalid Post" });
+  }
+  res.status(200).json(data);
 });
 
 module.exports = OrganizationRouts;
