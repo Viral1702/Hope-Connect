@@ -2,151 +2,81 @@ import React from "react";
 
 function ContactForm() {
   return (
-    <div className="bg-[#FFE7C7] min-h-screen flex justify-center items-center p-5"
-        style={{
-            padding: "20px 20px 10px 20px", // Reduced bottom padding
-        }}
-        >
+    <div className="bg-[#FFE7C7] min-h-screen flex justify-center items-center p-5">
       <div
-        style={{
-          backgroundColor: "#FAEBD7", // Light Beige background
-          padding: "20px",
-          fontFamily: "serif", // Use a serif font as in the image
-          textAlign: "center",
-          maxWidth: "600px", // Limit the width for better readability
-          borderRadius: "8px", // Add rounded corners
-          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // Add a subtle shadow
-          marginBottom: "0px", // to reduce bottom space
-        }}
+        className="bg-[#FAEBD7] p-5 font-serif text-center max-w-lg rounded-lg shadow-md"
       >
-        <h2 style={{ color: "#333" }}>Contact Us</h2>
-        <p style={{ color: "#555", marginBottom: "20px" }}>
+        <h2 className="text-[#333]">Contact Us</h2>
+        <p className="text-[#555] mb-5">
           Any questions or remarks? Just write us a message!
         </p>
 
-        <form
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              width: "100%",
-              marginBottom: "10px",
-            }}
-          >
-            <div style={{ width: "48%" }}>
-              <label
-                htmlFor="email"
-                style={{ textAlign: "left", display: "block" }}
-              >
+        <form className="flex flex-col items-center">
+          <div className="flex justify-between w-full mb-2">
+            <div className="w-1/2 mr-2">
+              <label htmlFor="email" className="text-left block">
                 Email:
               </label>
               <input
                 type="email"
                 id="email"
                 name="email"
-                style={{
-                  width: "100%",
-                  padding: "8px",
-                  borderRadius: "4px",
-                  border: "1px solid #ccc",
-                }}
+                className="w-full p-2 rounded border border-gray-300"
               />
             </div>
-            <div style={{ width: "48%" }}>
-              <label
-                htmlFor="name"
-                style={{ textAlign: "left", display: "block" }}
-              >
+            <div className="w-1/2 ml-2">
+              <label htmlFor="name" className="text-left block">
                 Name:
               </label>
               <input
                 type="text"
                 id="name"
                 name="name"
-                style={{
-                  width: "100%",
-                  padding: "8px",
-                  borderRadius: "4px",
-                  border: "1px solid #ccc",
-                }}
+                className="w-full p-2 rounded border border-gray-300"
               />
             </div>
           </div>
 
-          <label
-            htmlFor="message"
-            style={{ textAlign: "left", display: "block", width: "100%" }}
-          >
+          <label htmlFor="message" className="text-left block w-full">
             Message:
           </label>
           <textarea
             id="message"
             name="message"
             rows="4"
-            style={{
-              width: "100%",
-              padding: "8px",
-              borderRadius: "4px",
-              border: "1px solid #ccc",
-              marginBottom: "20px",
-            }}
+            className="w-full p-2 rounded border border-gray-300 mb-5"
           ></textarea>
 
           <button
             type="submit"
-            style={{
-              padding: "10px 20px",
-              backgroundColor: "#e0e0e0",
-              border: "none",
-              borderRadius: "4px",
-              cursor: "pointer",
-            }}
+            className="px-5 py-2 bg-gray-200 border-none rounded cursor-pointer hover:bg-gray-300"
           >
             Submit
           </button>
         </form>
 
-        <div
-          style={{
-            marginTop: "20px",
-            display: "flex",
-            justifyContent: "center",
-            gap: "70px",
-          }}
-        >
-          <div
-            style={{
-              marginRight: "20px",
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
-            <span
-              role="img"
-              aria-label="phone"
-              style={{ fontSize: "24px", marginRight: "5px" }}
-            >
-              <img src="/contactus/phone.png" width={35} height={35} />
-            </span>
+        <div className="mt-5 flex justify-center gap-16">
+          <div className="flex items-center">
+            <img
+              src="/contactus/phone.png"
+              width={35}
+              height={35}
+              alt="phone"
+              className="mr-2"
+            />
             <div>
               <p>+91 90232 44500</p>
               <p>+91 82008 60989</p>
             </div>
           </div>
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <span
-              role="img"
-              aria-label="email"
-              style={{ fontSize: "24px", marginRight: "5px" }}
-            >
-              <img src="/contactus/email.png" width={35} height={35} />
-            </span>
+          <div className="flex items-center">
+            <img
+              src="/contactus/email.png"
+              width={35}
+              height={35}
+              alt="email"
+              className="mr-2"
+            />
             <p>msanghani046@rku.ac.in</p>
           </div>
         </div>
