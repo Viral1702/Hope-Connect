@@ -39,30 +39,6 @@ const Details = () => {
                 </td>
               </tr>            
             </table>
-
-            {/* <div className="flex gap-2">
-              <div className="w-36 h-36 rounded-4xl overflow-hidden">
-                <img
-                  src="/aboutus/child.png"
-                  alt="Child"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="w-36 h-36 rounded-4xl overflow-hidden">
-                <img
-                  src="/aboutus/river.png"
-                  alt="Slum Area"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="w-36 h-36 rounded-4xl overflow-hidden">
-                <img
-                  src="/aboutus/animal.png"
-                  alt="Dog"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div> */}
           </div>
         </div>
       </div>
