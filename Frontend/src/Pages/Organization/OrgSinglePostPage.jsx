@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import ParticularCard from "../../Components/Organization/ParticularCard";
+
 const getPostData = async (id) => {
   const user = localStorage.getItem("users");
   if (!user) return [];

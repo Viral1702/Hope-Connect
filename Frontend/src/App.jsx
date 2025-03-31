@@ -23,43 +23,50 @@ import AllPost from "./Pages/User/AllPost";
 import Network from "./Pages/User/Network";
 import Post from "./Pages/User/Post";
 import Profile from "./Pages/User/Profile";
+import OrgProfilePage from "./Pages/Organization/OrgProfilePage";
 
+import { Toaster } from "react-hot-toast";
 const App = () => {
   return (
-    <OrgProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<LandingOutlet />}>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/aboutus" element={<AboutUs />} />
-            <Route path="/contactus" element={<ContactUs />} />
-          </Route>
+    <>
+      <OrgProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<LandingOutlet />}>
+              <Route path="/" element={<Homepage />} />
+              <Route path="/aboutus" element={<AboutUs />} />
+              <Route path="/contactus" element={<ContactUs />} />
+            </Route>
 
-          <Route path="/login" element={<LoginOutlet />}>
-            <Route index element={<Loginpage />} />{" "}
-            {/* Default page inside /login */}
-          </Route>
+            <Route path="/login" element={<LoginOutlet />}>
+              <Route index element={<Loginpage />} />{" "}
+              {/* Default page inside /login */}
+            </Route>
 
-          <Route path="/user" element={<UserOutlet />}>
-            <Route path="allpost" element={<AllPost />} />
-            <Route path="post" element={<Post />} />
-            <Route path="network" element={<Network />} />
-            <Route path="profile" element={<Profile />} />
-          </Route>
+            <Route path="/user" element={<UserOutlet />}>
+              <Route path="allpost" element={<AllPost />} />
+              <Route path="post" element={<Post />} />
+              <Route path="network" element={<Network />} />
+              <Route path="profile" element={<Profile />} />
+            </Route>
 
-          <Route path="/organization" element={<OrganizationOutlet />}>
-            <Route path="" element={<OrgHomepage />} />
-            <Route path=":id" element={<OrgSinglePostPage />} />
-          </Route>
+            <Route path="/organization" element={<OrganizationOutlet />}>
+              <Route path="" element={<OrgHomepage />} />
+              <Route path="profile" element={<OrgProfilePage />} />
+              <Route path=":id" element={<OrgSinglePostPage />} />
+            </Route>
 
-          {/* Auth Routes */}
-          <Route path="/auth" element={<LoginOutlet />}>
-            <Route path="login" element={<Loginpage />} />
-            <Route path="register" element={<Registerpage />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </OrgProvider>
+            {/* Auth Routes */}
+            <Route path="/auth" element={<LoginOutlet />}>
+              <Route path="login" element={<Loginpage />} />
+              <Route path="register" element={<Registerpage />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </OrgProvider>
+
+      <Toaster />
+    </>
   );
 };
 

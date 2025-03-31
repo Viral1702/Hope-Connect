@@ -9,7 +9,7 @@ const OrgHeader = () => {
       </Link>
       <Link to="/organization">All Post</Link>
       <Link to="/organization">Total Post ({post.length || 0})</Link>
-      <Link to="/profile">
+      <Link to="/organization/profile">
         <div className="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
           <svg
             className="absolute w-12 h-12 text-gray-400 -left-1"
