@@ -14,6 +14,7 @@ const getData = async () => {
         Authorization: token,
       },
     });
+
     return data;
   } catch (error) {
     console.error("Error fetching data:", error);

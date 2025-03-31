@@ -18,6 +18,12 @@ import ContactUs from "./Pages/Landing/ContactUs";
 import { OrgProvider } from "./Context/OrganizationContext";
 import OrgSinglePostPage from "./Pages/Organization/OrgSinglePostPage";
 
+// Users Pages
+import AllPost from "./Pages/User/AllPost";
+import Network from "./Pages/User/Network";
+import Post from "./Pages/User/Post";
+import Profile from "./Pages/User/Profile";
+
 const App = () => {
   return (
     <OrgProvider>
@@ -34,7 +40,12 @@ const App = () => {
             {/* Default page inside /login */}
           </Route>
 
-          <Route path="/user" element={<UserOutlet />}></Route>
+          <Route path="/user" element={<UserOutlet />}>
+            <Route path="allpost" element={<AllPost />} />
+            <Route path="post" element={<Post />} />
+            <Route path="network" element={<Network />} />
+            <Route path="profile" element={<Profile />} />
+          </Route>
 
           <Route path="/organization" element={<OrganizationOutlet />}>
             <Route path="" element={<OrgHomepage />} />
