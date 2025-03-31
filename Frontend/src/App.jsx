@@ -41,7 +41,7 @@ const App = () => {
           </Route>
 
           <Route path="/user" element={<UserOutlet />}>
-            <Route path="allpost" element={<AllPost />} />
+            <Route path="/user" element={<AllPost />} />
             <Route path="post" element={<Post />} />
             <Route path="network" element={<Network />} />
             <Route path="profile" element={<Profile />} />
