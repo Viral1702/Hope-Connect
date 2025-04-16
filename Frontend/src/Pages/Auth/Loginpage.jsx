@@ -1,25 +1,55 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-hot-toast";
 
 const LoginPage = () => {
-  const navigate = useNavigate(); // Hook to navigate
+  const navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleLogin = (e) => {
-    e.preventDefault(); // Prevents default form submission
+  const handleLogin = async (e) => {
+    e.preventDefault();
 
-  // verifying user credentials
+    const loadingToast = toast.loading("Logging in...");
 
-    // Redirect to "/user" after successful login
-    navigate("/user");
+    try {
+      const { data } = await axios.post(
+        "http://localhost:3000/api/auth/signin",
+        {
+          email: username,
+          password,
+        }
+      );
+
+      toast.success(data.message || "Login successful!", { id: loadingToast });
+
+      // Optionally store token
+      if (data.token) {
+        localStorage.setItem("token", data.token);
+      }
+
+      // Navigate based on role
+      setTimeout(() => {
+        if (data.role && data.role === "user") {
+          navigate("/user/allpost");
+        } else {
+          navigate("/organization");
+        }
+      }, 1000);
+    } catch (err) {
+      toast.error(
+        err.response?.data?.message || "Login failed. Please try again.",
+        { id: loadingToast }
+      );
+    }
   };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-orange-100">
-      {/* Authentication Container */}
       <div className="bg-orange-200 p-8 rounded-lg shadow-md w-96 text-center">
         <h2 className="text-2xl font-semibold mb-6">Login Form</h2>
 
-        {/* Login Form */}
         <form onSubmit={handleLogin} className="space-y-5">
           <div className="flex items-center bg-white p-2 rounded-md shadow">
             <img
@@ -30,6 +60,8 @@ const LoginPage = () => {
             <input
               type="text"
               placeholder="Enter Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
               required
               className="w-full border-none outline-none text-sm"
             />
@@ -44,6 +76,8 @@ const LoginPage = () => {
             <input
               type="password"
               placeholder="Enter Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               required
               className="w-full border-none outline-none text-sm"
             />

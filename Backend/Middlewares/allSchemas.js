@@ -18,7 +18,7 @@ const resetPasswordSchema = zod.object({
 
 const postSchema = zod.object({
   message: zod.string().min(10),
-  location: zod.object({ x: zod.string(), y: zod.string() }),
+  // location: zod.object({ x: zod.string(), y: zod.string() }),
 });
 
 module.exports = {

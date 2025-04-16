@@ -1,8 +1,11 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function UserHeader() {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+
+  const isProfilePage = location.pathname === "/user/profile";
 
   return (
     <div className="bg-[#F5C28E] shadow-md border-b w-full sticky top-0 left-0 z-50">
@@ -52,7 +55,7 @@ export default function UserHeader() {
           } lg:flex flex-col lg:flex-row lg:items-center absolute lg:static top-16 left-0 w-full lg:w-auto bg-[#F5C28E] lg:bg-transparent shadow-lg lg:shadow-none p-4 lg:p-0`}
         >
           <Link
-            to="/user"
+            to="/user/allpost"
             className="block px-4 py-2 text-black font-semibold hover:text-[#ff6a00]"
           >
             All Post
@@ -70,14 +73,28 @@ export default function UserHeader() {
             Post
           </Link>
 
-          {/* User Icon (beside Notification) */}
-          <Link to="/user/profile" className="block px-4 py-2">
-            <img
-              src="https://img.icons8.com/ios-filled/50/000000/user.png" // User icon
-              alt="User Icon"
-              className="w-6 h-6 rounded-full"
-            />
-          </Link>
+          {/* Show Logout only if on profile page, else show profile icon */}
+          <div className="block px-4 py-2">
+            {isProfilePage ? (
+              <Link
+                to="/auth/login"
+                className="text-red-600 font-semibold hover:underline"
+                onClick={() => {
+                  localStorage.clear();
+                }}
+              >
+                Logout
+              </Link>
+            ) : (
+              <Link to="/user/profile">
+                <img
+                  src="https://img.icons8.com/ios-filled/50/000000/user.png"
+                  alt="User Icon"
+                  className="w-6 h-6 rounded-full"
+                />
+              </Link>
+            )}
+          </div>
         </div>
       </nav>
     </div>

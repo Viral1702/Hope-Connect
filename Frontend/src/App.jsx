@@ -2,6 +2,9 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+//ProtectedRoute
+import ProtectedRoute from "./Components/Common/ProtectedRoute";
+
 // Outlets
 import LandingOutlet from "./Outlets/LandingOutlet";
 import UserOutlet from "./Outlets/UserOutlet";
@@ -26,6 +29,8 @@ import Profile from "./Pages/User/Profile";
 import OrgProfilePage from "./Pages/Organization/OrgProfilePage";
 
 import { Toaster } from "react-hot-toast";
+import VerifyOtpPage from "./Pages/Auth/VerifyOTPPage";
+import OrganizationPage from "./Pages/Auth/OrganizationPage";
 const App = () => {
   return (
     <>
@@ -43,14 +48,28 @@ const App = () => {
               {/* Default page inside /login */}
             </Route>
 
-            <Route path="/user" element={<UserOutlet />}>
+            <Route
+              path="/user/*"
+              element={
+                <ProtectedRoute>
+                  <UserOutlet /> {/* Wrapping the user routes with layout */}
+                </ProtectedRoute>
+              }
+            >
               <Route path="allpost" element={<AllPost />} />
               <Route path="post" element={<Post />} />
               <Route path="network" element={<Network />} />
               <Route path="profile" element={<Profile />} />
             </Route>
 
-            <Route path="/organization" element={<OrganizationOutlet />}>
+            <Route
+              path="/organization/*"
+              element={
+                <ProtectedRoute>
+                  <OrganizationOutlet />{" "}
+                </ProtectedRoute>
+              }
+            >
               <Route path="" element={<OrgHomepage />} />
               <Route path="profile" element={<OrgProfilePage />} />
               <Route path=":id" element={<OrgSinglePostPage />} />
@@ -60,6 +79,11 @@ const App = () => {
             <Route path="/auth" element={<LoginOutlet />}>
               <Route path="login" element={<Loginpage />} />
               <Route path="register" element={<Registerpage />} />
+              <Route
+                path="create-organization"
+                element={<OrganizationPage />}
+              />
+              <Route path="verify-otp" element={<VerifyOtpPage />} />
             </Route>
           </Routes>
         </BrowserRouter>

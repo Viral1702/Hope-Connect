@@ -8,7 +8,11 @@ const HeroCard = ({ name, description, src, id }) => {
         {name}
       </div>
       <div>{description}</div>
-      <img className="h-45 rounded-2xl" src={src} alt={src} />
+      <img
+        className="h-45 rounded-2xl"
+        src={`http://localhost:3000/${src}`}
+        alt={src}
+      />
       <button className="bg-[#FFC586] w-full  text-lg rounded-sm border-2">
         <Link to={`/organization/${id}`}>View more</Link>
       </button>

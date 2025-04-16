@@ -4,9 +4,7 @@ import axios from "axios";
 import ParticularCard from "../../Components/Organization/ParticularCard";
 
 const getPostData = async (id) => {
-  const user = localStorage.getItem("users");
-  if (!user) return [];
-  const { token } = JSON.parse(user);
+  const token = localStorage.getItem("token");
   if (!token) return [];
   const { data } = await axios.get(
     `http://localhost:3000/api/organization/${id}`,
@@ -31,7 +29,9 @@ const OrgSinglePostPage = () => {
   }, [id]);
   return (
     <div className="flex justify-center">
+      {console.log(postData)}
       <ParticularCard
+        id={id}
         name={postData?.userId?.name}
         description={postData?.message}
         src={postData?.image}

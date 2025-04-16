@@ -14,19 +14,18 @@ const OrgProfilePage = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const user = localStorage.getItem("users");
-        if (!user) return [];
-        const { token } = JSON.parse(user);
+        const token = localStorage.getItem("token");
         if (!token) return [];
 
         const { data } = await axios.get(
           "http://localhost:3000/api/user-profile",
           {
             headers: {
-              authorization: `${token}`, // Attach token in the request
+              Authorization: `${token}`, // Attach token in the request
             },
           }
         );
+        console.log(data);
 
         setFormData({
           name: data.name,
@@ -51,9 +50,7 @@ const OrgProfilePage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const user = localStorage.getItem("users");
-      if (!user) return [];
-      const { token } = JSON.parse(user);
+      const token = localStorage.getItem("token");
       if (!token) return [];
       const response = await axios.post(
         "http://localhost:3000/api/update-profile",

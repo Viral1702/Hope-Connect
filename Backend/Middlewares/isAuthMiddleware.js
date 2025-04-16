@@ -5,8 +5,8 @@ dotenv.config();
 
 const isAuthenticated = async (req, res, next) => {
   try {
-    const { authorization } = req.headers;
-    const token = authorization.split(" ")[1];
+    const token = req.headers.authorization;
+
     if (!token) {
       res.status(403).json({
         message: "You are not Authenticated",
