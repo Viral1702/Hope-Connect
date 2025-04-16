@@ -10,7 +10,7 @@ const signup = async (req, res) => {
     const { name, email, number, password } = req.body;
     const category = req.body?.category ?? null;
 
-    // Check if User Exists
+  
     const isExists = await User.findOne({
       $or: [{ email }, { number }],
     });
