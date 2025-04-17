@@ -28,7 +28,7 @@ const signup = async (req, res) => {
 
     const otpNumber = Math.floor(100000 + Math.random() * 900000);
 
-    // Create new User
+    
     const newUser = await User.create({
       name,
       email,
