@@ -103,6 +103,7 @@ const updateProfile = async (req, res) => {
   try {
     const userId = req.body._id;
     const { name, password, number } = req.body;
+    console.log(userId);
     const profileData = await User.findByIdAndUpdate(userId, {
       name,
       password,
@@ -110,7 +111,7 @@ const updateProfile = async (req, res) => {
     });
     return res.status(200).json({ message: "Profile updates successfully" });
   } catch (error) {
-    console.log("Error in getProfile ", error);
+    console.log("Error in update Profile ", error);
     res.status(500).json({ message: "Internal server Error" });
   }
 };
